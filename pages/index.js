@@ -6,7 +6,7 @@ export default function Page({ data }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fs.readFile("public/data.json", "utf8");
+  const res = await fs.readFile("./public/data.json", "utf8");
 
   const data = JSON.parse(res);
 
