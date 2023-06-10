@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  /* cursor: none !important; */
+}
+
+body {
+  @apply bg-green-50;
+}
+
+body[data-no-scroll="true"] {
+  overflow: hidden;
+}
+
+.gallary-img-cont:nth-child(3n-1) {
+  justify-content: space-between;
+}
+
+.gallary-img-cont:not(:last-child) {
+  margin-right: 10px;
+}
+
+.gallary-img-cont:last-child {
+  justify-content: space-around;
+  padding-right: 2rem;
+}
+
+.gallary-img:nth-child(2):not(:last-child) {
+  margin-right: -20%;
+}
+
+.m-scale {
+  --scale: 0.7;
+
+  scale: var(--scale);
+  transition: scale 200ms cubic-bezier(0.31, 0.96, 0.18, 0.94);
+  will-change: scale;
+}
+
+body[data-no-scroll="true"] .m-scale {
+  scale: 0.7;
+}
