@@ -1,6 +1,6 @@
 import React from "react";
 import Cursor from "@/components/cursor";
-import "./globals.css";
+import "../styles/globals.css";
 import localFont from "next/font/local";
 import Head from 'next/head'
 
