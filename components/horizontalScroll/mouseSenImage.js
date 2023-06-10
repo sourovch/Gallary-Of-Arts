@@ -57,11 +57,11 @@ function MouseSenImage({ src, alt, className, layoutId, onClick, ...rest }) {
         elem.style.scale = "";
       }}
       onMouseEnter={() => {
-        setCursorText(src);
+        setCursorText(src.replace(/^.*[\\/]/, "").replace(/\.[^.]+$/, ""));
         setVariantName("withBackground");
       }}
       onMouseLeave={() => {
-        setCursorText('');
+        setCursorText("");
         setVariantName("default");
       }}
       onMouseOver={(e) => e.stopPropagation()}
