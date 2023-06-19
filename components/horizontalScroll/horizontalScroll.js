@@ -27,11 +27,11 @@ function HorizontalScroll({ imgArr }) {
       >
         <div className="sticky top-0 left-0" ref={scrollRef} key={1}>
           <m.div
-            className="w-max flex relative h-screen items-center"
+            className="md:w-max flex relative h-screen items-center"
             style={{ x: spring }}
           >
             <div
-              className="relative flex mx-3 items-center h-[90%] min-h-[400px]"
+              className="relative flex mx-3 items-center h-[90%] min-h-[400px] flex-wrap md:flex-nowrap"
               onMouseOver={() => {
                 setVariantName("default");
                 setCursorText("scroll to discover");

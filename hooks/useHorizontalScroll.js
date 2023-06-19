@@ -17,7 +17,6 @@ function useHorizontalScroll({ reRender }) {
     }
 
     window.addEventListener("resize", handelResize);
-    window.scrollTo(0, 0)
 
     return () => window.removeEventListener("resize", handelResize);
   }, [scrollRef, reRender]);

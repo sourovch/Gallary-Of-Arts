@@ -9,7 +9,7 @@ function ImageContainer({ imgConf, setLayoutInfo }) {
       {imgConf?.map((confObj) => (
         <div
           key={confObj.id}
-          className="min-w-[30vh] h-full relative gallary-img-cont flex flex-col justify-around items-end py-8 gap-2"
+          className="w-[150px] md:w-[30vh] min-w-[30px] h-full relative gallary-img-cont flex flex-col justify-around items-end py-8 gap-2"
         >
           {confObj.arr.map((imgInfo) => (
             <MouseSenImage
