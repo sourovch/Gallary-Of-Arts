@@ -1,4 +1,6 @@
-[
+{
+  "displayImg": "/diplay_pic.jpeg",
+  "images": [
     {
       "id": 1,
       "src": "/img-0.jpeg"
@@ -80,4 +82,4 @@
       "src": "/img-8.jpeg"
     }
   ]
-  
+}

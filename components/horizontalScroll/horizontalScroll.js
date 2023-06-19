@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from "react";
 import { motion as m, AnimatePresence } from "framer-motion";
 import useHorizontalScroll from "@/hooks/useHorizontalScroll";

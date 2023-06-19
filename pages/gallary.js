@@ -10,7 +10,7 @@ export async function getServerSideProps() {
   const filePath = path.join(process.cwd(), "data.json");
   const res = await fs.readFile(filePath, "utf8");
 
-  const data = JSON.parse(res);
+  const data = JSON.parse(res).images;
 
   return { props: { data } };
 }
