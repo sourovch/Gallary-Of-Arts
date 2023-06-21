@@ -1,4 +1,41 @@
 {
+  "accordianContent": [
+    {
+      "id": 1,
+      "img": "/img-0.jpeg",
+      "title": "sky full of stars",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, tenetur!",
+      "type": "img"
+    },
+    {
+      "id": 2,
+      "img": "/img-1.jpeg",
+      "title": "beauty of nature",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, tenetur!",
+      "type": "img"
+    },
+    {
+      "id": 3,
+      "img": "/img-2.jpeg",
+      "title": "mistic forrest",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, tenetur!",
+      "type": "blog"
+    },
+    {
+      "id": 4,
+      "img": "/img-3.jpeg",
+      "title": "history of univarse",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, tenetur!",
+      "type": "img"
+    },
+    {
+      "id": 5,
+      "img": "/img-4.jpeg",
+      "title": "hanging elefent",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, tenetur!",
+      "type": "img"
+    }
+  ],
   "displayImg": "/diplay_pic.jpeg",
   "images": [
     {

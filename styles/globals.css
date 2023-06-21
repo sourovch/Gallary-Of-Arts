@@ -29,7 +29,7 @@ body[data-no-scroll="true"] {
 }
 
 .gallary-img:nth-child(2):not(:last-child) {
-  margin-right: -20%;
+  @apply sm:mr-[-20px] mr-[20px];
 }
 
 .m-scale {
@@ -44,6 +44,73 @@ body[data-no-scroll="true"] .m-scale {
   scale: 0.7;
 }
 
-.p-btn {
-  @apply text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 uppercase mt-4;
+/* accordian style */
+.accordian {
+  --icon-width: 3rem;
+  --panal-padding: 0.8rem;
+  --icon-gap: 0.8rem;
+
+  @apply flex flex-col md:flex-row gap-3 p-2 md:h-full md:w-[900px] text-white md:[--icon-width:3.5rem];
+}
+
+.accordian-panal {
+  flex-basis: calc((var(--panal-padding) * 2) + var(--icon-width));
+  border-radius: calc(((var(--panal-padding) * 2) + var(--icon-width)) / 2);
+
+  @apply relative overflow-hidden p-[var(--panal-padding)] transition-all duration-500 ease-out;
+  outline: 2px solid;
+  outline-color: lightgray;
+  outline-offset: 2px;
+}
+
+.accordian-trigger {
+  @apply flex flex-row-reverse items-center gap-[--icon-gap];
+}
+
+.accordian-title {
+  @apply capitalize whitespace-nowrap text-xl md:text-2xl font-bold;
+}
+
+.accordian-background {
+  @apply absolute inset-0 -z-10 isolate w-full h-full object-cover;
+}
+
+.accordian-icon {
+  @apply min-w-[var(--icon-width)] w-[var(--icon-width)] aspect-[1] rounded-full p-2;
+  background-color: hsl(0 0% 0% / 0.55);
+  fill: var(--icon-color);
+}
+
+.accordian-panal:nth-of-type(1) {
+  --icon-color: hsl(160, 70%, 50%);
+}
+.accordian-panal:nth-of-type(2) {
+  --icon-color: hsl(184, 70%, 50%);
+}
+.accordian-panal:nth-of-type(3) {
+  --icon-color: hsl(220, 70%, 50%);
+}
+.accordian-panal:nth-of-type(4) {
+  --icon-color: hsl(350, 70%, 50%);
+}
+.accordian-panal:nth-of-type(5) {
+  --icon-color: hsl(20, 70%, 50%);
+}
+
+.accordian-content p {
+  @apply leading-8 translate-y-5 opacity-0 duration-0;
+  margin-left: calc(var(--icon-gap) + var(--icon-width));
+}
+
+.accordian-panal.active {
+  flex-basis: clamp(15rem, 40vh, 20rem);
+  flex-grow: 1;
+}
+
+.accordian-panal.active .accordian-content p {
+  @apply translate-y-0 opacity-100 transition-all delay-[500ms] duration-200 ease-out;
+}
+
+.accordian-panal.active .accordian-background {
+  filter: brightness(0.8);
 }

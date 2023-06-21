@@ -19,7 +19,11 @@ function useHorizontalScroll({ reRender }) {
     window.addEventListener("resize", handelResize);
 
     return () => window.removeEventListener("resize", handelResize);
-  }, [scrollRef, reRender]);
+  }, [scrollRef]);
+
+  useLayoutEffect(() => {
+    scrollRef && setScrollWidth(scrollRef.current.scrollWidth);
+  }, [reRender])
 
   const onResize = useCallback((entries) => {
     for (let entry of entries) {
@@ -42,7 +46,7 @@ function useHorizontalScroll({ reRender }) {
 
   const transform = useTransform(
     scrollYProgress,
-    [0, .7],
+    [0, 1],
     [0, viewPortW - scrollWidth]
   );
 
