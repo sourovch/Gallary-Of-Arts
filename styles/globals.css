@@ -73,6 +73,7 @@ body[data-no-scroll="true"] .m-scale {
 
 .accordian-background {
   @apply absolute inset-0 -z-10 isolate w-full h-full object-cover;
+  transition: filter 200ms;
 }
 
 .accordian-icon {

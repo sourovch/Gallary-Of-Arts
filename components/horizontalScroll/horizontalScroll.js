@@ -21,7 +21,7 @@ function HorizontalScroll({ imgArr }) {
     <AnimatePresence>
       <div
         key={2}
-        className="w-screen relative overflow-x-clip"
+        className="w-[99vw] relative overflow-x-clip"
         ref={gostRef}
         style={{ height: gostHeight }}
       >
