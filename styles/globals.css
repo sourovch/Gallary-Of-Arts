@@ -35,9 +35,10 @@ body[data-no-scroll="true"] {
 .m-scale {
   --scale: 0.7;
 
-  scale: var(--scale);
   transition: scale 220ms cubic-bezier(0.31, 0.96, 0.18, 0.94);
   will-change: scale;
+
+  @apply scale-100 md:scale-[var(--scale)]
 }
 
 body[data-no-scroll="true"] .m-scale {
