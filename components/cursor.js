@@ -56,7 +56,7 @@ function Cursor() {
     <m.div
       variants={variants}
       animate={variantName}
-      className="fixed z-50 text-sm pointer-events-none uppercase px-3 py-[2px] rounded-xl"
+      className="fixed z-50 text-sm pointer-events-none uppercase px-3 py-[2px] rounded-xl hidden md:block"
     >
       {text}
     </m.div>
