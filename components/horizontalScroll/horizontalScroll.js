@@ -44,7 +44,7 @@ function HorizontalScroll({ imgArr }) {
       </div>
       {layoutInfo ? (
         <m.div
-          className="fixed h-screen w-screen grid place-content-center top-0 backdrop-blur-[var(--backdrop-blur)]"
+          className="fixed h-screen w-screen grid place-content-center top-0 backdrop-blur-[var(--backdrop-blur)] z-10"
           initial={{
             "--backdrop-blur": "0px",
           }}
