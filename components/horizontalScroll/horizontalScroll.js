@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { motion as m, AnimatePresence } from "framer-motion";
 import useHorizontalScroll from "@/hooks/useHorizontalScroll";
 import ImageContainer from "./imageContainer";
@@ -17,9 +17,16 @@ function HorizontalScroll({ imgArr }) {
   const setCursorText = cursorVariants((state) => state.setCursorText);
   const setVariantName = cursorVariants((state) => state.setVariant);
 
+  useLayoutEffect(
+    () => () => {
+      window.scrollTo(0, 0);
+    },
+    []
+  );
+
   return (
     <AnimatePresence>
-      <div
+      <m.div
         key={2}
         className="w-[calc(90vh - 10px)] relative overflow-x-clip"
         ref={gostRef}
@@ -41,7 +48,7 @@ function HorizontalScroll({ imgArr }) {
             </div>
           </m.div>
         </div>
-      </div>
+      </m.div>
       {layoutInfo ? (
         <m.div
           className="fixed h-screen w-screen grid place-content-center top-0 backdrop-blur-[var(--backdrop-blur)] z-10"

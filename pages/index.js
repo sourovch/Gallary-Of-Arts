@@ -58,15 +58,19 @@ export default function Page({ data: { displayImg, accordianContent } }) {
                 />
               </button>
               <div className="md:flex md:max-w-7xl items-center gap-[6.5rem] p-8 pb-2">
-                <div className="md:h-[60vh]">
+                <m.div
+                  className="md:h-[60vh] -rotate-3 md:-rotate-6"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                >
                   <Image
-                    className="-rotate-3 md:-rotate-6 flex-1 h-full w-auto object-cover mb-10 md:mb-0 mx-auto"
+                    className="flex-1 h-full w-auto object-cover mb-10 md:mb-0 mx-auto"
                     src={`/images${displayImg}`}
                     width={1000}
                     height={1000}
                     alt="piyas"
                   />
-                </div>
+                </m.div>
                 <div className="max-w-prose">
                   <p className="ml-1">I am,</p>
                   <h1 className="xl:text-8xl text-5xl mb-7">Piyas Chowdhury</h1>

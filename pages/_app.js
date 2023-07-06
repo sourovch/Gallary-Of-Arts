@@ -3,9 +3,7 @@ import Cursor from "@/components/cursor";
 import "../styles/globals.css";
 import localFont from "next/font/local";
 import Head from "next/head";
-import Image from "next/image";
-import { AnimatePresence } from "framer-motion";
-import { NavLink } from "@/components/NavLink";
+import Navbar from "@/components/Navbar";
 
 const fraktion = localFont({
   src: [
@@ -47,32 +45,9 @@ export default function MyApp({ Component, pageProps }) {
       <Head>
         <title>Gallary Of Arts</title>
       </Head>
-      <AnimatePresence>
-        <>
-          <Cursor />
-          <Component {...pageProps} />
-          <nav className="navbar">
-            <NavLink href={"/"} className="nav-item aspect-square block">
-              <Image
-                height={100}
-                width={100}
-                alt="home"
-                src={"/icons/home-icon.png"}
-                className="h-full"
-              />
-            </NavLink>
-            <NavLink href={"/gallary"} className="nav-item aspect-square block">
-              <Image
-                height={100}
-                width={100}
-                alt="home"
-                src={"/icons/gallary-icon.png"}
-                className="h-full"
-              />
-            </NavLink>
-          </nav>
-        </>
-      </AnimatePresence>
+      <Cursor />
+      <Component {...pageProps} />
+      <Navbar />
     </>
   );
 }

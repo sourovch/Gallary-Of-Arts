@@ -27,7 +27,13 @@ function NavLink({ href, exact, children, ...props }) {
   }
 
   return (
-    <Link href={href} {...props}>
+    <Link
+      href={href}
+      {...props}
+      onClick={(e) => {
+        isActive && e.preventDefault();
+      }}
+    >
       {isActive ? (
         <m.div
           transition={{
