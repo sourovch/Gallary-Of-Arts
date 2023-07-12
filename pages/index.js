@@ -7,6 +7,7 @@ import AccrodianPanal from "@/components/accrodianPanal";
 import SvgSprits from "@/components/svgSprits";
 import accrodianData from "@/stores/accordianData";
 import { useRef } from "react";
+import Transition from "@/components/Transition";
 
 export default function Page({ data: { displayImg, accordianContent } }) {
   const {
@@ -17,9 +18,10 @@ export default function Page({ data: { displayImg, accordianContent } }) {
   const scrollBtnRef = useRef();
 
   const activePanal = accrodianData((state) => state.activePanal);
+  const setCursorText = accrodianData((state) => state.setCursorText);
 
   return (
-    <>
+    <Transition>
       <div
         className="w-[calc(90vh - 10px)] relative overflow-x-clip"
         ref={gostRef}
@@ -59,9 +61,10 @@ export default function Page({ data: { displayImg, accordianContent } }) {
               </button>
               <div className="md:flex md:max-w-7xl items-center gap-[6.5rem] p-8 pb-2">
                 <m.div
-                  className="md:h-[60vh] -rotate-3 md:-rotate-6"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  className="md:h-[60vh] md:-rotate-6"
+                  initial={{ rotate: 0, transformOrigin: "10px 10px" }}
+                  animate={{ rotate: 3 }}
+                  transition={{ delay: 0.7 }}
                 >
                   <Image
                     className="flex-1 h-full w-auto object-cover mb-10 md:mb-0 mx-auto"
@@ -71,14 +74,19 @@ export default function Page({ data: { displayImg, accordianContent } }) {
                     alt="piyas"
                   />
                 </m.div>
-                <div className="max-w-prose">
+                <m.div
+                  className="max-w-prose"
+                  initial={{ x: 70, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.3, duration: .4 }}
+                >
                   <p className="ml-1">I am,</p>
                   <h1 className="xl:text-8xl text-5xl mb-7">Piyas Chowdhury</h1>
                   <p className="leading-8">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Culpa, quisquam illum? Aliquid
                   </p>
-                </div>
+                </m.div>
               </div>
             </div>
             <div className="accordian">
@@ -106,7 +114,7 @@ export default function Page({ data: { displayImg, accordianContent } }) {
         </div>
       </div>
       <SvgSprits />
-    </>
+    </Transition>
   );
 }
 

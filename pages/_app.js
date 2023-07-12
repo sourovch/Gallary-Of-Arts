@@ -4,6 +4,7 @@ import "../styles/globals.css";
 import localFont from "next/font/local";
 import Head from "next/head";
 import Navbar from "@/components/Navbar";
+import { AnimatePresence } from "framer-motion";
 
 const fraktion = localFont({
   src: [
@@ -31,7 +32,7 @@ const fraktion = localFont({
   variable: "--font-fraktion",
 });
 
-export default function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps, router }) {
   if (typeof window === "undefined") React.useLayoutEffect = () => {};
 
   return (
@@ -46,7 +47,9 @@ export default function MyApp({ Component, pageProps }) {
         <title>Gallary Of Arts</title>
       </Head>
       <Cursor />
-      <Component {...pageProps} />
+      <AnimatePresence mode="wait">
+        <Component key={router.pathname} {...pageProps} />
+      </AnimatePresence>
       <Navbar />
     </>
   );

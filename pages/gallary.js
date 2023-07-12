@@ -1,9 +1,14 @@
+import Transition from "@/components/Transition";
 import HorizontalScroll from "@/components/horizontalScroll";
 import { promises as fs } from "fs";
 import path from "path";
 
 export default function Page({ data }) {
-  return <HorizontalScroll imgArr={data} />;
+  return (
+    <Transition>
+      <HorizontalScroll imgArr={data} />
+    </Transition>
+  );
 }
 
 export async function getServerSideProps() {
