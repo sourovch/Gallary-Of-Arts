@@ -46,6 +46,7 @@ export default function Page({ data: { displayImg, accordianContent } }) {
             <div className="w-screen md:h-screen md:grid place-content-center relative">
               <m.button
                 animate={{ y: accBtnOnMid ? "-40vh" : "0" }}
+                transition={{ delay: 0.3 }}
                 ref={scrollBtnRef}
                 className="absolute bottom-10 m-auto right-10 w-[4rem] aspect-square border-2 border-black rounded-full p-2 bt-hover transition-all ease-out duration-200 hidden md:block point-right focus:outline outline-blue-600 outline-offset-1"
                 onTap={() => {

@@ -43,7 +43,6 @@ function MouseSenImage({ src, alt, className, layoutId, onClick, ...rest }) {
       layoutId={layoutId}
       transition={{
         type: "tween",
-        easings: "easeOut",
         duration: 0.4,
       }}
       onTap={(e) => {

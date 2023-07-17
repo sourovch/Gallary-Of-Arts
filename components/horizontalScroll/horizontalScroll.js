@@ -77,8 +77,7 @@ function HorizontalScroll({ imgArr }) {
             layoutId={layoutInfo.id}
             transition={{
               type: "tween",
-              ease: "easeOut",
-              duration: 0.4,
+              duration: 0.6,
             }}
             onClick={(e) => e.stopPropagation()}
             onMouseOver={(e) => {
