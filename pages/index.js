@@ -6,8 +6,9 @@ import { motion as m } from "framer-motion";
 import AccrodianPanal from "@/components/accrodianPanal";
 import SvgSprits from "@/components/svgSprits";
 import accrodianData from "@/stores/accordianData";
-import { useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import Transition from "@/components/Transition";
+import cursorVariants from "@/stores/cursorvariants";
 
 export default function Page({ data: { displayImg, accordianContent } }) {
   const {
@@ -16,9 +17,12 @@ export default function Page({ data: { displayImg, accordianContent } }) {
     refs: { scrollRef, gostRef },
   } = useHorizontalScroll({ reRender: false });
   const scrollBtnRef = useRef();
+  const [accBtnOnMid, setAccBtnOnMid] = useState(false);
 
   const activePanal = accrodianData((state) => state.activePanal);
-  const setCursorText = accrodianData((state) => state.setCursorText);
+  const { setCursorText, setVariant } = cursorVariants(
+    ({ setCursorText, setVariant }) => ({ setCursorText, setVariant })
+  );
 
   return (
     <Transition>
@@ -27,28 +31,36 @@ export default function Page({ data: { displayImg, accordianContent } }) {
         ref={gostRef}
         style={{ height: gostHeight }}
       >
-        <div className="sticky top-0 left-0" ref={scrollRef}>
+        <div
+          className="sticky top-0 left-0"
+          ref={scrollRef}
+          onMouseOver={() => {
+            setCursorText("scroll to discover");
+            setVariant("default");
+          }}
+        >
           <m.div
             className="md:w-max flex relative h-screen items-center md:flex-nowrap flex-wrap"
             style={{ x: spring }}
           >
             <div className="w-screen md:h-screen md:grid place-content-center relative">
-              <button
+              <m.button
+                animate={{ y: accBtnOnMid ? "-40vh" : "0" }}
                 ref={scrollBtnRef}
-                className="absolute bottom-10 right-10 w-[4rem] aspect-square border-2 border-black rounded-full p-2 bt-hover transition-all ease-out duration-200 hidden md:block point-right focus:outline outline-blue-600 outline-offset-1"
-                onClick={() => {
+                className="absolute bottom-10 m-auto right-10 w-[4rem] aspect-square border-2 border-black rounded-full p-2 bt-hover transition-all ease-out duration-200 hidden md:block point-right focus:outline outline-blue-600 outline-offset-1"
+                onTap={() => {
                   const onBottom =
                     Math.ceil(window.innerHeight + window.scrollY) >=
                     document.documentElement.offsetHeight;
 
                   if (onBottom) {
                     window.scrollTo(0, 0);
-                    scrollBtnRef.current.classList.add("point-right");
+                    setAccBtnOnMid(false);
                     return;
                   }
 
                   window.scrollTo(0, document.documentElement.offsetHeight);
-                  scrollBtnRef.current.classList.remove("point-right");
+                  setAccBtnOnMid(true);
                 }}
               >
                 <Image
@@ -58,7 +70,7 @@ export default function Page({ data: { displayImg, accordianContent } }) {
                   alt="arrow"
                   className="w-full h-full"
                 />
-              </button>
+              </m.button>
               <div className="md:flex md:max-w-7xl items-center gap-[6.5rem] p-8 pb-2">
                 <m.div
                   className="md:h-[60vh] md:-rotate-6"
@@ -78,7 +90,7 @@ export default function Page({ data: { displayImg, accordianContent } }) {
                   className="max-w-prose"
                   initial={{ x: 70, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.3, duration: .4 }}
+                  transition={{ delay: 0.3, duration: 0.4 }}
                 >
                   <p className="ml-1">I am,</p>
                   <h1 className="xl:text-8xl text-5xl mb-7">Piyas Chowdhury</h1>

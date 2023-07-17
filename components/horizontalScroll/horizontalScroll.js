@@ -17,12 +17,11 @@ function HorizontalScroll({ imgArr }) {
   const setCursorText = cursorVariants((state) => state.setCursorText);
   const setVariantName = cursorVariants((state) => state.setVariant);
 
-  useLayoutEffect(
-    () => () => {
+  useLayoutEffect(() => {
+    return () => {
       window.scrollTo(0, 0);
-    },
-    []
-  );
+    };
+  }, []);
 
   return (
     <AnimatePresence>

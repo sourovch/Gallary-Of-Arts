@@ -32,6 +32,8 @@ function NavLink({ href, exact, children, ...props }) {
       {...props}
       onClick={(e) => {
         isActive && e.preventDefault();
+        
+        if (typeof props.onClick === "function") props.onClick();
       }}
     >
       {isActive ? (

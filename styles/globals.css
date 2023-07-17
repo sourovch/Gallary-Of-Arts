@@ -60,12 +60,6 @@ body[data-no-scroll="true"] .m-scale {
   filter: invert(1);
 }
 
-.point-right {
-  @apply rotate-180;
-}
-.point-right > img {
-  @apply -ml-[3px];
-}
 
 /* accordian style */
 .accordian {

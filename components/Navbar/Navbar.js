@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { AnimatePresence, motion as m } from "framer-motion";
 import { NavLink } from "@/components/NavLink";
+import pageTransitionData from "@/stores/pageTransitionData";
+import cursorVariants from "@/stores/cursorvariants";
 
 const Navbar = () => {
   const navItems = [
@@ -15,6 +17,9 @@ const Navbar = () => {
       iconSrc: "/icons/gallary-icon.png",
     },
   ];
+
+  const setPageText = pageTransitionData((state) => state.setPageText);
+
   return (
     <AnimatePresence>
       <m.nav
@@ -27,6 +32,9 @@ const Navbar = () => {
           <NavLink
             key={item.path}
             href={item.path}
+            onClick={() => {
+              setPageText(item.pageName);
+            }}
             className="nav-item aspect-square block relative"
           >
             <Image
